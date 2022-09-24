@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Grupo</ion-title>
+    <ion-buttons slot="end">
+      
+      <ion-button (click)="alumnos()">
+        <ion-icon name="people-outline" color="light"></ion-icon>
+      </ion-button>
+      <ion-button (click)="horario()">
+        <ion-icon name="calendar-outline" color="light"></ion-icon>
+      </ion-button>
+      <ion-button (click)="remove()">
+        <ion-icon name="trash" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <img src="./assets/icons/classroom.png" alt="">
+  <form [formGroup]='form' (ngSubmit)='save()'>
+      <ion-item lines="none">
+        <ion-label position="floating">Docente</ion-label>
+        <ion-select formControlName="docente">
+          <ion-select-option *ngFor="let item of arrDocentes | async" value="{{ item.uid }}">{{ item.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-label position="floating">Facultad</ion-label>
+        <ion-select formControlName="facultad">
+          <ion-select-option *ngFor="let item of arrFacultades | async" value="{{ item.id }}">{{ item.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-label position="floating">Asignatura</ion-label>
+        <ion-select formControlName="asignatura">
+          <ion-select-option *ngFor="let item of arrAsignaturas | async" value="{{ item.id }}">{{ item.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-label position="floating">Clave</ion-label>
+        <ion-input formControlName="clave"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-label position="floating">Estatus</ion-label>
+        <ion-select formControlName="estatus">
+          <ion-select-option value="1">Activo</ion-select-option>
+          <ion-select-option value="0">Inactivo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br><br>
+      <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Editar</ion-button>
+  </form>
+</ion-content>

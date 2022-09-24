@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chat Grupal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="alumnos()">
+        <ion-icon slot="icon-only" name="people" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-no-padding">
+  <div class="chat-container">
+    <div *ngFor="let message of arrMessages" class="chat-bubble" [ngClass]="{'send':message.sender==='docente' ,'dealer':message.sender==='alumno'}">
+      <div class="user-data-container">
+        <img [src]="message.photoURL" class="user-photo" alt="img_usuario"/> <span class="user-name">{{ message.nombre }}</span>
+      </div>
+      <p>{{ message.text }}</p>
+      <small><span>{{ message.sender==='docente'?'Docente | ':message.sender==='alumno'?'Alumno | ':'' }} {{ message.created | date:'shortTime' }}</span></small>
+    </div>
+  </div>
+  <form [formGroup]="formMessages">
+    <div class="chat-controls">
+      <ion-row class="bg-white">
+        <ion-col size="9" class="ion-no-padding">
+          <ion-list lines="none" class="ion-no-padding">
+            <ion-item>
+              <ion-input formControlName="messageInput" placeholder="Escribe un mensaje" type="text"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="3" class="ion-no-padding">
+          <ion-fab style="float: right; position: inherit;">
+            <ion-fab-button size="small" [disabled]="!formMessages.valid" color="light" (click)="sendMessage(formMessages.value)">
+              <ion-icon name="send"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-col>
+      </ion-row>
+    </div>
+  </form>
+</ion-content>

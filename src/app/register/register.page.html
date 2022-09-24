@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <div class="wave-container">
+    <img src="assets/registro.png" alt="img_registro">
+    <form [formGroup]='form' (ngSubmit)='onRegister()'>
+      <ion-item lines="full">
+        <ion-input type="text" formControlName="email" placeholder="Correo"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="full">
+        <ion-input type="password" formControlName="password" placeholder="Correo"></ion-input>
+      </ion-item>
+      <br>
+    <ion-button expand='block' type='submit' [disabled]='!form.valid' expand="block">Registrarse</ion-button>
+    </form>
+  <form>
+    
+  </form>
+  <ion-row>
+    <ion-col>
+      <p>
+        <a routerLink="/login" style="color: white;">Ya tienes una cuenta? </a>
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#FFFFFF" fill-opacity="1" d="M0,288L80,250.7C160,213,320,139,480,144C640,149,800,235,960,256C1120,277,1280,235,1360,213.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#3d8e81;"></path>
+  </svg>
+</div>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      <span class="ion-float-left">T&P Devs.</span> 
+        <span class="ion-float-right">uniquindio.edu.co</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer> 
+
+</ion-content>

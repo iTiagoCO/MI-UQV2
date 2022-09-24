@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Facultad</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="remove()">
+        <ion-icon name="trash" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding" mode="ios">
+  <form [formGroup]='form' (ngSubmit)='save()'>
+    <ion-card mode="ios">
+      <ion-searchbar placeholder="Filter Schedules" formControlName="direccion" [(ngModel)]="term" debounce="600" animated="true" placeholder="Buscar dirección" (ionInput)="searchChange()" ngDefaultControl></ion-searchbar>
+      <ion-list [hidden]="!searchResults.length" lines="none" class="buscar-direcciones">
+        <ion-item *ngFor="let location of searchResults" (click)="setAddress(location)">
+          {{ location.description }} x
+        </ion-item>
+      </ion-list>
+      <div #map id="map"></div>
+    </ion-card>
+    <ion-item lines="none">
+      <ion-input formControlName="nombre" placeholder="Nombre de facultad"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Estatus</ion-label>
+      <ion-select formControlName="estatus">
+        <ion-select-option value="1">Activo</ion-select-option>
+        <ion-select-option value="0">Inactivo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br><br>
+    <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Actualizar</ion-button>
+  </form>
+</ion-content>

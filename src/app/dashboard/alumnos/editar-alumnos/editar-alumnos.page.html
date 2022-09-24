@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <img [src]="userImage" class="userImage" alt="img_usuario">
+  <br>
+<form [formGroup]='form' (ngSubmit)='save()' style="margin-top: 15px;" *ngIf="dataItem">
+      <ion-item lines="none">
+        <ion-input formControlName="email" placeholder="Nombre" [disabled] = "true"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="nombre" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="materno" placeholder="Apellido Materno"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="paterno" placeholder="Apellido Paterno"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Actualizar</ion-button>
+</form>
+</ion-content>

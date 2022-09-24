@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar Asignatura</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="remove()">
+        <ion-icon name="trash" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <img src="./assets/icons/homework.png" alt="">
+
+<form [formGroup]='form' (ngSubmit)='save()'>
+    <ion-item lines="none">
+      <ion-label>Nombre</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Clave</ion-label>
+      <ion-input formControlName="clave"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Creditos</ion-label>
+      <ion-input formControlName="creditos"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Estatus</ion-label>
+      <ion-select formControlName="estatus">
+        <ion-select-option value="1">Activo</ion-select-option>
+        <ion-select-option value="0">Inactivo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br><br>
+    <ion-button expand='block' type='submit' [disabled]='!form.valid'>Editar</ion-button>
+</form>
+</ion-content>

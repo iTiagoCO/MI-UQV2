@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Menu Button-->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Docente</ion-title>
+    <ion-buttons slot="end">
+      <ion-label class="ion-text-right"> <ion-icon name="calendar-outline"></ion-icon> {{ fechaHoy | date:'d-M-Y' }}</ion-label>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+  <ion-segment (ionChange)="segmentVista($event)" [(ngModel)]="vista">
+    <ion-segment-button value="hoy">
+      <ion-label>Hoy</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="semana">
+      <ion-label>Semana</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="vista=='hoy'">
+    <div class="card" *ngFor="let asignatura of arrAsignaturas" (click)="verGrupo(asignatura)">
+      <div class="card-time">
+          <span class="text-time-start">{{ asignatura.inicio=='00:00'?'12:00':asignatura.inicio }}</span>
+          <span class="text-time-end">{{ asignatura.fin=='00:00'?'12:00':asignatura.fin }}</span>
+      </div>
+      <div class="card-task">
+        <ion-icon name="chevron-forward-outline" class="arrow-right-task"></ion-icon>
+        <span class="title-task">{{ asignatura.asignatura_nombre }}</span>
+        <span class="subtitle-task">{{ (asignatura.grupoData | async)?.facultad_nombre }}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="vista=='semana'" style="margin-top: 3px;">
+    <ion-segment (ionChange)="segmentVistaDiaSemana($event)" scrollable [(ngModel)]="currentDayOfWeek">
+      <ion-segment-button value="Lunes">
+        <ion-label>L</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Martes">
+        <ion-label>M</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Miércoles">
+        <ion-label>M</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Jueves">
+        <ion-label>J</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Viernes">
+        <ion-label>V</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Sábado">
+        <ion-label>S</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Domingo">
+        <ion-label>D</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+      <div class="card" *ngFor="let asignatura of arrAsignaturasDiaSemana" (click)="verGrupo(asignatura)">
+        <div class="card-time">
+            <span class="text-time-start">{{ asignatura.inicio=='00:00'?'12:00':asignatura.inicio }}</span>
+            <span class="text-time-end">{{ asignatura.fin=='00:00'?'12:00':asignatura.fin }}</span>
+        </div>
+        <div class="card-task">
+          <ion-icon name="chevron-forward-outline" class="arrow-right-task"></ion-icon>
+          <span class="title-task">{{ asignatura.asignatura_nombre }}</span>
+          <span class="subtitle-task">{{ (asignatura.grupoData | async)?.facultad_nombre }}</span>
+        </div>
+      </div>
+  </div>
+</ion-content>

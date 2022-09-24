@@ -1,0 +1,47 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main" *ngIf="userData">
+    <ion-header>
+      <div class="user-detail">
+        <div class="user-img">
+          <img src="{{ userData!=null?(userData.photoURL!=null?userData.photoURL:'./assets/default_user_picture.jpg'):'./assets/default_user_picture.jpg' }}" alt="">
+        </div>
+        <span class="tipeUser">{{ userData.tipo | uppercase }}</span>
+        <div class="user-name">
+          <h2>{{ userData!=null?(userData.nombre!=null?userData.nombre:'Sin Nombre'):'Sin Nombre' }}</h2>
+        </div>
+      </div>
+    </ion-header>
+    <ion-content *ngIf="userData">
+        <ion-menu-toggle auto-hide="true" (click)="inicio()" *ngIf="userData.tipo=='admin'">
+          <ion-item class="no-background text-white" lines="none"><ion-icon class="text-white" slot="start" name="home"></ion-icon>Inicio</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true" (click)="inicio()" *ngIf="userData.tipo!='admin'">
+          <ion-item class="no-background text-white" lines="none"><ion-icon class="text-white" slot="start" name="calendar-outline"></ion-icon>Calendario</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true" *ngIf="userData.tipo!='admin'" (click)="tareas()">
+          <ion-item class="no-background text-white" lines="none"><ion-icon class="text-white" slot="start" name="library-outline"></ion-icon>Tareas</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true" *ngIf="userData.tipo == 'docente'" (click)="chats()">
+          <ion-item class="no-background text-white" lines="none"><ion-icon class="text-white" slot="start" name="chatbubbles-outline"></ion-icon>Chats</ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle auto-hide="true" (click)="inscripciones()" *ngIf="userData.tipo=='usuario'">
+          <ion-item class="no-background text-white" lines="none"><ion-icon class="text-white" slot="start" name="calendar-outline"></ion-icon>Inscripciones</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item class="no-background text-white" lines="none" (click)="perfil()"><ion-icon class="text-white" slot="start" name="person-outline"></ion-icon>Perfil</ion-item>
+        </ion-menu-toggle>
+    </ion-content>
+    <ion-footer>
+      <ion-item (click)="logOut()">
+        <ion-icon slot="start" name="power-outline"></ion-icon>
+        <ion-label> Salir</ion-label>
+      </ion-item>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet  id="main"></ion-router-outlet>
+</ion-app>

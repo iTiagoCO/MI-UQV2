@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-searchbar placeholder="Filter Schedules" [(ngModel)]="term" animated="true" mode="ios" color="light" placeholder="Buscar grupo"></ion-searchbar>
+
+  <div class="card" *ngFor="let asignatura of arrAsignaturas" (click)="tareas(asignatura)">
+    <div class="card-task">
+      <ion-icon name="chevron-forward-outline" class="arrow-right-task"></ion-icon>
+      <span class="title-task">{{ asignatura.asignatura_nombre }}</span>
+      <span class="subtitle-task">{{ (asignatura.grupoData | async)?.facultad_nombre }}</span>
+    </div>
+  </div>
+</ion-content>

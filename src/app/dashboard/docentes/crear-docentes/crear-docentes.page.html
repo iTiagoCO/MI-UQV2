@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar Docente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <img [src]="userImage" class="img-profile-user" alt="img_docente">
+  <ion-fab-button color="light" (click)="tomarGaleria()" style="position: absolute; 
+  margin-left: 41%;
+  margin-top: -61px;">
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+  <br>
+<form [formGroup]='form' (ngSubmit)='save()' style="margin-top: 15px;">
+    <ion-item lines="none">
+      <ion-label>Nombre</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Cedula</ion-label>
+      <ion-input formControlName="clave"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Correo</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Password</ion-label>
+      <ion-input type="password"formControlName="password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label>Estatus</ion-label>
+      <ion-select formControlName="estatus">
+        <ion-select-option value="1">Activo</ion-select-option>
+        <ion-select-option value="0">Inactivo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br><br>
+    <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Registrar</ion-button>
+</form>
+</ion-content>

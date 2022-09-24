@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Alumnos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar placeholder="Filter Schedules" [(ngModel)]="term" animated="true" mode="ios" color="light" placeholder="Buscar alumno"></ion-searchbar>
+  <div *ngFor="let item of arrData | filter:term">
+    <div class="list_div">
+      <img [src]="item.photoURL!=null?item.photoURL:'./assets/default_user_picture.png'" class="userImage" slot="start" alt="img_usuario"/>
+      <ion-label>{{ item.nombre??'' }} {{ item.materno??'' }} {{ item.paterno??'' }}</ion-label>
+      <ion-icon name="trash-outline" color="danger" (click)="remove(item)"></ion-icon>
+    </div>
+  </div>
+</ion-content>

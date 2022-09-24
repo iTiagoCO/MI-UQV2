@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Como llegar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-subtitle *ngIf="dataFacultad">
+        <h1 class="ion-text-center">
+          <ion-icon name="pin" color="primary"></ion-icon>
+          <span>{{dataFacultad.nombre}}</span>
+        </h1>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <div #map id="map"></div>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border" lines="none">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <div class="wave-container ion-padding">
+    <img src="assets/login.png" alt="img_login">
+    <form [formGroup]='form' (ngSubmit)='onLogin()'>
+      <ion-item class="border-radius">
+        <ion-input type="email" formControlName="email" placeholder="Correo"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand='block' type='submit' [disabled]='!form.valid' expand="block">Iniciar sesión</ion-button>
+    </form>
+    <ion-row>
+      <ion-col>
+        <p class="ion-text-center" color="#ffffff">
+          <a class="texto" routerLink="/forgot-password">¿Olvidaste tu contraseña? </a>
+        </p>
+
+        <ion-button color="warning" (click)="register()" expand="block">
+          Registrarse
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <span class="center-span"> o </span>
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" (click)="loginGoogle()" expand="block">
+          <ion-icon name="logo-google" slot="start"></ion-icon>Iniciar sesión con Google
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!--
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#FFFFFF" fill-opacity="1" d="M0,288L80,261.3C160,235,320,181,480,149.3C640,117,800,107,960,96C1120,85,1280,75,1360,69.3L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#3d8e81;"></path>
+    </svg>-->
+    </div>
+
+    <ion-footer class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>
+          <span class="ion-float-left">T&P Devs.</span>
+            <span class="ion-float-right">uniquindio.edu.co</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Docente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <img [src]="userImage" class="userImage" alt="img_docente">
+  <br>
+<form [formGroup]='form' style="margin-top: 15px;">
+      <ion-item lines="none">
+        <ion-input formControlName="email" placeholder="Email" [disabled] = "true"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="nombre" placeholder="Nombre" [disabled] = "true"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="materno" placeholder="Apellido Materno" [disabled] = "true"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="paterno" placeholder="Apellido Paterno" [disabled] = "true"></ion-input>
+      </ion-item>
+</form>
+</ion-content>

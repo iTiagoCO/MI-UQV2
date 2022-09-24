@@ -1,0 +1,18 @@
+{
+    "android": {
+      "debug": {
+        "keystore": "./keystore.jks",
+        "storePassword": "uniquindio$",
+        "alias": "uniquindio",
+        "password" : "uniquindio$",
+        "keystoreType": "JKS"
+      },
+      "release": {
+            "keystore": "./keystore.",
+            "storePassword": "uniquindio$",
+            "alias": "uniquindio",
+            "password" : "uniquindio$",
+            "keystoreType": "JKS"
+      }
+    }
+}

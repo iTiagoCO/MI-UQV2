@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="dataHorario">Grupo: {{ (dataGrupo | async )?.clave }} |  {{ (dataHorario | async )?.asignatura_nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="none" style="margin-top: 5px;">
+    <span class="text-time-start">{{ ( dataHorario | async )?.inicio=='00:00'?'12:00':( dataHorario | async )?.inicio }}</span> - 
+    <span class="text-time-end">{{ ( dataHorario | async )?.fin=='00:00'?'12:00':( dataHorario | async )?.fin }}</span>
+    <ion-icon slot="end" name="chatbubbles" size="small" (click)="chat()"></ion-icon>
+    <ion-icon slot="end" (click)="tareas()" name="library-outline" size="small"></ion-icon>
+  </ion-item>
+  
+  <ion-searchbar placeholder="Filter Schedules" [(ngModel)]="term" animated="true" mode="ios" color="light" placeholder="Buscar alumno"></ion-searchbar>
+  <div *ngFor="let item of arrAlumnos | filter:term">
+    <div class="list_div">
+      <img [src]="item.photoURL!=null?item.photoURL:'./assets/default_user_picture.png'" class="userImage" slot="start" alt="img_usuario"/>
+      <ion-label>{{ item.nombre }} {{ item.materno }} {{ item.paterno }}</ion-label>
+    </div>
+  </div>
+</ion-content>

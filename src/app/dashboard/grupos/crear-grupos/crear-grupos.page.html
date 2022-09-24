@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar Grupo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <img src="./assets/icons/classroom.png" alt="">
+<form [formGroup]='form' (ngSubmit)='save()'>
+    <ion-item lines="none">
+      <ion-label position="floating">Docente</ion-label>
+      <ion-select formControlName="docente" (ionChange)="setNombreDocente($event)">
+        <ion-select-option *ngFor="let item of arrDocentes | async" value="{{ item.id }}">{{ item.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label position="floating">Facultad</ion-label>
+      <ion-select formControlName="facultad" (ionChange)="setNombreFacultad($event)">
+        <ion-select-option *ngFor="let item of arrFacultades | async" value="{{ item.id }}">{{ item.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label position="floating">Asignatura</ion-label>
+      <ion-select formControlName="asignatura" (ionChange)="setNombreAsignatura($event)">
+        <ion-select-option *ngFor="let item of arrAsignaturas | async" value="{{ item.id }}">{{ item.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label position="floating">Clave</ion-label>
+      <ion-input formControlName="clave"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-label position="floating">Estatus</ion-label>
+      <ion-select formControlName="estatus">
+        <ion-select-option value="1">Activo</ion-select-option>
+        <ion-select-option value="0">Inactivo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br><br>
+    <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Registrar</ion-button>
+</form>
+
+</ion-content>

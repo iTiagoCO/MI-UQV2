@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Perfil de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <img [src]="userImage" class="userImage" alt="img_usuario">
+  <ion-fab-button color="light" style="position: absolute;
+  margin-left: 38%;
+  margin-top: -61px;">
+    <ion-icon name="camera" (click) = "tomarGaleria()"></ion-icon>
+  </ion-fab-button>
+  <br>
+<form [formGroup]='form' (ngSubmit)='save()' style="margin-top: 15px;">
+      <ion-item lines="none">
+        <ion-input formControlName="email" placeholder="Email" [disabled] = "true"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="nombre" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="materno" placeholder="Apellido Materno"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="paterno" placeholder="Apellido Paterno"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Actualizar</ion-button>
+</form>
+</ion-content>

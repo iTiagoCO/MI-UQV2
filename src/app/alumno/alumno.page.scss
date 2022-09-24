@@ -1,0 +1,58 @@
+ion-content {
+    --background: linear-gradient(to top, #ffffff, #ffffff);
+}
+.card {
+    margin-top: 5%;
+    margin-left: 1%;
+    width: 98%;
+    display: inline-flex;
+    flex-direction: inherit;
+    .card-time {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        text-align: center;
+        .text-time-start {
+            color: rgb(55, 54, 54);
+            font-weight: 600;
+        }
+        .text-time-end {
+            color: rgb(128, 126, 126);
+            font-weight: 600;
+            font-size: 12px;
+        }
+    }
+    .card-task {
+        width: 78%;
+        background: #11cc97;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        .title-task {
+            padding: 10px;
+            font-size: 1.2em;
+            color: white;
+            position: absolute;
+        }
+        .subtitle-task {
+            padding: 10px;
+            font-size: 0.8em;
+            color: #e6e6e6;
+            margin-top: -17px;
+        }
+        .arrow-right-task {
+            padding: 15px;
+            font-size: 1em;
+            color: white;
+            /* right: 0px; */
+            top: 0px;
+            font-weight: 600;
+            float: right;
+            margin-left: 80%;
+            position: inherit;
+        }
+    }
+    
+}

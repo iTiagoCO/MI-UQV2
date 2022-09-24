@@ -1,0 +1,19 @@
+.list_div {
+    display: flex;
+    justify-content: start;
+    .asignature-name {
+        margin-left: 5%;
+    }
+    .docente-photo {
+        width: 25px;
+        border-radius: 50%;
+        height: 25px;
+        position: absolute;
+        margin-top: 20px;
+    }
+    ion-icon {
+        position: absolute;
+        right: 30px;
+        margin-top: 12px;
+    }
+}

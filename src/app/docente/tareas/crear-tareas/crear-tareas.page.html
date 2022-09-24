@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar nueva tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <img src="./assets/icons/homework.png" alt="">
+  <form [formGroup]='form' (ngSubmit)='save()'>
+      <ion-item lines="none">
+        <ion-label>Nombre</ion-label>
+        <ion-input formControlName="nombre"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-label>Fecha de entrega</ion-label>
+        <ion-input type="date" formControlName="fecha"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item lines="none">
+        <ion-label>Estatus</ion-label>
+        <ion-select formControlName="estatus">
+          <ion-select-option value="1">Activo</ion-select-option>
+          <ion-select-option value="0">Inactivo</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br><br>
+      <ion-button expand='block' type='submit' mode="ios" color="light" [disabled]='!form.valid'>Registrar</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "202203579021",
+    "project_id": "prototipo-escolar",
+    "storage_bucket": "prototipo-escolar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202203579021:android:d04f8bd52f4871b694d8c4",
+        "android_client_info": {
+          "package_name": "ingsoft.apps.uniquindio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202203579021-7fu6bcjqvtgmkp48km9jlm494j9bs27e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ingsoft.apps.uniquindio",
+            "certificate_hash": "ba556a1667f6be0bfd936aedc068456b8beef0f4"
+          }
+        },
+        {
+          "client_id": "202203579021-p951vs5k10on16al3iqm7b266bni6pb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS98NkfY43DqPcbTMKM9wYnDjA0sJiS2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202203579021-p951vs5k10on16al3iqm7b266bni6pb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

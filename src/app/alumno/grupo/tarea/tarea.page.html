@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Entregar - {{ tarea.fecha }}</ion-title>
+    <ion-buttons slot="end" *ngIf="tarea">
+      <ion-toggle [(ngModel)]="entregada" (ionChange)="entregarTarea($event)"></ion-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="tarea">
+    <ion-card mode="ios">
+      <ion-card-content class="ion-text-center">
+        <p>{{ tarea.nombre }}</p>
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <ion-item lines="none">
+      <ion-label class="ion-text-center">{{ tarea.entregada == true?'Realizada':'Pendiente' }}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>

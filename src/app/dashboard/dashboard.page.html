@@ -1,0 +1,92 @@
+<ion-content>
+    <div class="main_content_div" *ngIf="userData!=null">
+        <ion-buttons slot="start" class="menu_btn">
+            <ion-menu-button color="light" style="color:white;"></ion-menu-button>
+        </ion-buttons>
+
+        <div class="user_div">
+            <div class="first_div">
+                <ion-label class="username">{{ userData!=null?(userData.nombre!=null?userData.nombre:'Sin Nombre'):'Sin Nombre' }}</ion-label>
+            </div>
+            <div class="user_back">
+                <img [src]="imageUser" alt="" style="border-radius: 50%;">
+            </div>
+        </div>
+        <div class="content_div" >
+            <div class="test_details">
+                <ion-grid fixed>
+                    <ion-row>
+                        <ion-col size="6">
+                            <div class="flex_div">
+                                <div class="round_div">
+                                    <img src="./assets/student-2.png" alt="">
+                                </div>
+                                <div class="details">
+                                    <ion-label class="bold_lbl">{{ alumnosCount }}</ion-label>
+                                    <ion-label class="small_lbl">Alumnos</ion-label>
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col size="6">
+                            <div class="flex_div">
+                                <div class="round_div">
+                                    <img src="./assets/icons/book-stack.png" alt="">
+                                </div>
+                                <div class="details">
+                                    <ion-label class="bold_lbl">{{ docentesCount }}</ion-label>
+                                    <ion-label class="small_lbl">Docentes</ion-label>
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col size="6">
+                            <div class="flex_div">
+                                <div class="round_div">
+                                    <img src="./assets/icons/book-stack.png" alt="">
+                                </div>
+                                <div class="details">
+                                    <ion-label class="bold_lbl">{{ gruposCount }}</ion-label>
+                                    <ion-label class="small_lbl">Grupos</ion-label>
+                                </div>
+                            </div>
+                        </ion-col>
+                        <ion-col size="6">
+                            <div class="flex_div">
+                                <div class="round_div">
+                                    <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/344/external-school-city-scape-xnimrodx-lineal-gradient-xnimrodx.png" alt="">
+                                </div>
+                                <div class="details">
+                                    <ion-label class="bold_lbl">{{ facultadesCount }}</ion-label>
+                                    <ion-label class="small_lbl">Facultades</ion-label>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <div class="list_div" (click)="facultades()">
+                <ion-label>Facultades</ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+            
+            <div class="list_div" (click)="asignaturas()">
+                <ion-label>Asignaturas</ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+
+            <div class="list_div" (click)="alumnos()">
+                <ion-label>Alumnos</ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+
+            <div class="list_div" (click)="docentes()">
+                <ion-label>Docentes</ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+
+            <div class="list_div" (click)="grupos()">
+                <ion-label>Grupos</ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+</ion-content>
